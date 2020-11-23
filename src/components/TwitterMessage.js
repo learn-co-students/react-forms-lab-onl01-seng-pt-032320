@@ -16,12 +16,12 @@ class TwitterMessage extends React.Component {
   }
 
   render() {
-    let countLeft = this.props.maxChars - this.state.message.length
+    let charNumber = this.props.maxChars - this.state.message.length;
     return (
       <div>
         <strong>Your message:</strong>
-        <input onChange={event => this.handleChange(event)} type="text" name="message" id="message" />
-        {countLeft}
+        <input type="text" onChange={this.handleChange} value={this.state.message}/>
+        {charNumber}
       </div>
     );
   }
