@@ -2,54 +2,47 @@ import React from "react";
 
 class LoginForm extends React.Component {
   constructor(props) {
-
     super(props);
 
-    this.state = {value: '',
+    this.state = {
                   password: '',
-                  username: ''
+                  username: '',
+                  loggedIn: this.handleLogin
+                }
 
-
-  }
-   this.handleInputChange = this.handleInputChange.bind(this);
-   this.handlePassWordChange = this.handleInputChange.bind(this);
-    
-  }
-  handleInputChange(event){
-      console.log(event.target.value)
-    this.setState({value: event.target.value,
-      
-          username: ''
-
-    })
- // console.log(this.state.value)
- handlePassWordChange =(event) =>{
-  this.setState({value: event.target.value,
-
-    password: ''
-
-  })
-   
-      
-    }
-   
-  }
   
+  }
+  handleSubmit = event => {
+    event.preventDefault()
+    loggedIn: event.target.value,
+    // console.log("I am here")
+    // let formData = { firstName: this.state.firstName, lastName: this.state.lastName }
+    // let dataArray = this.state.submittedData.concat(formData)
+    // this.setState({submittedData: dataArray})
+    loggedIn: this.props.handleLogin
+  }
+  handleInputChange = event => {
+    console.log( event.target.value)
+    this.setState({
+      [event.target.name]: event.target.value,
+     
+    })
+  }
 
 
   render() {
     return (
-      <form>
+      <form onSubmit= {event => this.handleSubmit(event)} >
         <div>
           <label>
             Username
-            <input id="username" name="username" value={this.state.value} onChange={this.handleInputChange} type="text" />
+            <input id="username" name="username"  onChange={this.handleInputChange} type="text" />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" value={this.state.password} onChange={this.handlePassWordChange} type="password" />
+            <input id="password" name="password"  onChange={this.handleInputChange} type="password" />
           </label>
         </div>
         <div>
@@ -58,6 +51,6 @@ class LoginForm extends React.Component {
       </form>
     );
   }
-}
 
+}
 export default LoginForm;
