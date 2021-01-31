@@ -14,12 +14,8 @@ class LoginForm extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    loggedIn: event.target.value
-    // console.log("I am here")
-    // let formData = { firstName: this.state.firstName, lastName: this.state.lastName }
-    // let dataArray = this.state.submittedData.concat(formData)
-    // this.setState({submittedData: dataArray})
-    // loggedIn: this.props.handleLogin
+   this.props.handleLogin()
+    
   }
   handleInputChange = event => {
     console.log( event.target.value)
@@ -36,13 +32,13 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="username" name="username"  onChange={this.handleInputChange} type="text" />
+            <input id="username" name="username" value={this.state.username}  onChange={this.handleInputChange} type="text" />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password"  onChange={this.handleInputChange} type="password" />
+            <input id="password" name="password"value={this.state.password}  onChange={this.handleInputChange} type="password" />
           </label>
         </div>
         <div>
