@@ -6,7 +6,7 @@ class LoginForm extends React.Component {
 
     this.state = {
                   password: '',
-                  username: '',
+                  username: ''
           
                 }
 
@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-   this.props.handleLogin()
+    this.state.username === '' || this.state.password === ''? false : this.props.handleLogin(this.state)
     
   }
   handleInputChange = event => {
