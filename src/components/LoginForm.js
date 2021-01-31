@@ -14,12 +14,12 @@ class LoginForm extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    loggedIn: event.target.value,
+    loggedIn: event.target.value
     // console.log("I am here")
     // let formData = { firstName: this.state.firstName, lastName: this.state.lastName }
     // let dataArray = this.state.submittedData.concat(formData)
     // this.setState({submittedData: dataArray})
-    loggedIn: this.props.handleLogin
+    // loggedIn: this.props.handleLogin
   }
   handleInputChange = event => {
     console.log( event.target.value)
